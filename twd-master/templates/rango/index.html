@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <title>Rango</title>
+</head>
+<body>
+<h1>Rango Diz...</h1>
+<div>hey there partner!</div>
+<div>
+    {% if categories %}
+        <h2>Mais curtidas</h2>
+
+    <ol>
+        {% for category in categories %}
+            <li><a href="{% url 'show_category' category.slug %}"> {{ category.name }}</a> ({{ category.likes }})</li>
+        {% endfor %}
+    </ol>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+</div>
+<div>
+    <h2>Páginas mais acessadas</h2>
+        {% if pages %}
+            <ol>
+                {% for page in pages %}
+                    <li><a href="{{ page.url }}"> {{ page.title }}</a> ({{ page.views }})</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <strong>Não há páginas cadastradas.</strong>
+        {% endif %}
+</div>
+<div>
+    <img src="{% static "images/rango2.jpg" %}" alt="Picture of Rango" />
+
+</div>
+<div>
+    <a href="{% url 'about' %}">Sobre</a><br />
+    <a href="{% url 'add_category' %}">Adicionar uma nova Categoria</a><br />
+</div>
+</body>
+</html>

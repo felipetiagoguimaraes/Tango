@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load staticfiles %} <!-- New line -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>about rango</title>
+</head>
+<body>
+<h1>Projeto Rango</h1>
+<img src="{% static "images/rango.jpg" %}" alt="Picture of the Rango" />
+<div><a href="{% url 'index' %}">home</a><br /></div>
+</body>
+</html>
